@@ -191,4 +191,35 @@ body {
   body {
     font-size: 16px;
   }
+
+  .main_container {
+    margin: 10px;
+    padding: 5px;
+  }
+
+  .main_container .contact button {
+    width: 100px;
+    font-size: 12px;
+  }
+
+  .headline h3 {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .headline h3 {
+    font-size: 16px;
+  }
+
+  .main_container {
+    margin: 5px;
+    padding: 5px;
+    font-size: small;
+  }
+
+  .main_container .contact button {
+    width: 90px;
+    font-size: 12px;
+  }
 }
