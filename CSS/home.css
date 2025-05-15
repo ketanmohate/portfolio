@@ -128,6 +128,13 @@ body {
   }
 }
 
+@media screen and (max-width: 573px) {
+  .info{
+    
+  }
+
+}
+
 @media screen and (max-width: 480px) {
   .main_container {
     margin: 20px;
