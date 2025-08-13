@@ -51,8 +51,23 @@ body {
   text-decoration: none;
 }
 
+<<<<<<< HEAD
 .box1 a:hover {
   text-decoration: underline;
+=======
+.main_container .box1 {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  /* border: solid white; */
+  background-color: rgba(45, 43, 43, 0.404);
+  box-shadow: 0px 0px 5px 0px gray;
+  /* height: 150px; */
+  padding: 10px 30px;
+  justify-content: center;
+  /* grid-column: 1/2; */
+  border-radius: 5px;
+>>>>>>> 1d5f9c2 (modify)
 }
 
 ul {
