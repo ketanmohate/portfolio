@@ -1,77 +1,81 @@
 * {
-  padding: 0%;
-  margin: 0%;
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
 body {
   display: flex;
   flex-direction: column;
-  padding: 0%;
-  margin: 0%;
   background-color: black;
   color: white;
-  flex-wrap: wrap;
-  overflow: auto;
-  justify-content: center; /*hhhhh*/
+  font-family: "Poppins", sans-serif;
 }
 
-/* .heading{
-    display: flex;  
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-    width: 100%;
-}
-
-.heading h1{
-    color: #f1c40f;
-    border-bottom: solid white;
-} */
-
+/* Headline Styling */
 .headline {
   margin-top: 40px;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  text-align: center;
   width: 100%;
 }
 
 .headline h3 {
-  color: orange;
+  color: #f1c40f;
+  font-size: 1.8rem;
+  position: relative;
+  padding-bottom: 8px;
 }
 
+/* Decorative underline */
+.headline h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 3px;
+  width: 50%;
+  background: linear-gradient(90deg, orange, yellow);
+  border-radius: 5px;
+}
+
+/* Skills Container */
 .skills_container {
   display: grid;
-  grid-template-columns: auto auto auto;
-  grid-gap: 1em;
-  /* border: solid white;  */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5em;
   margin: 40px 20px;
-  height: 300px;
 }
 
+/* Skill Card */
 .skill {
+  background-color: rgba(45, 43, 43, 0.6);
+  border-radius: 10px;
+  padding: 20px;
   display: flex;
-  /* background-color: #333; */
-  background-color: rgba(45, 43, 43, 0.598);
-  box-shadow: 0px 0px 5px 0px gray;
-  /* border: solid white; */
-  border-radius: 5px;
-  margin-bottom: 20px;
   align-items: center;
-  justify-content: center;
-  padding: 30px;
+  box-shadow: 0px 0px 5px rgba(255, 193, 7, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.skill:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0px 0px 15px rgba(255, 193, 7, 0.4);
+}
+
+/* Skill Name */
 .skill-name {
-  flex: 0.5;
+  flex: 0.6;
   font-size: 1rem;
+  font-weight: 500;
 }
 
+/* Progress Bar Container */
 .progress-bar {
   flex: 2;
-  background-color: #d63636;
+  background-color: #333;
   height: 10px;
   margin: 0 10px;
   border-radius: 5px;
@@ -79,36 +83,40 @@ body {
   position: relative;
 }
 
+/* Progress Fill */
 .progress {
-  background-color: #ffcc00;
+  background: linear-gradient(90deg, #ffcc00, #ff6600);
   height: 100%;
-  transition: width 0.3s ease;
+  width: 0; /* Start empty for animation */
+  transition: width 1s ease-in-out;
 }
 
+/* Percentage Text */
 .percentage {
-  flex: 0.5;
+  flex: 0.4;
   font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* Animation Trigger */
+.skill.visible .progress {
+  width: var(--progress); /* Set via inline style or JS */
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 1024px) {
+  .skills_container {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media only screen and (max-width: 768px) {
   .skills_container {
     grid-template-columns: 1fr;
-    grid-gap: 1em;
-    margin: 20px 10px;
-    height: auto;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .headline {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    gap: 1em;
   }
 
   .headline h3 {
-    font-size: 20px;
+    font-size: 1.4rem;
   }
 }

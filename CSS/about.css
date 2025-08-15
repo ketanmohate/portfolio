@@ -17,32 +17,34 @@ body {
   overflow: auto;
 }
 
-/* .heading {
-    margin-top: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-    width: 100%;
-  }
-  
-  .heading h1 {
-    color: #f1c40f;
-    border-bottom: solid white;
-  } */
-
+/* Headline Section */
 .headline {
-  margin-top: 30px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  margin: 30px auto;
+  text-align: center;
   width: 100%;
 }
 
 .headline h3 {
   color: orange;
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-weight: 600;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px;
 }
+
+.headline h3::after {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 3px;
+  background: linear-gradient(90deg, orange, yellow);
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
 
 .main_container {
   display: grid;
@@ -71,7 +73,14 @@ body {
   padding: 10px;
   /* height: 290px; */
   border-radius: 5px;
-  /* box-shadow: 0px 0px 10px 0px white; */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+
+  display: flex;
+  flex-direction: column;
+  background: rgba(45, 43, 43, 0.5);
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .main_container .intro span {
@@ -93,15 +102,21 @@ body {
   /* height: 290px; */
   line-height: 2em;
   border-radius: 5px;
+  padding: 10px 10px;
+  line-height: 1.8em;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+
+  display: flex;
+  flex-direction: column;
+  padding: 20px 30px;
+  background: rgba(45, 43, 43, 0.5);
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .main_container .table table {
   margin: auto 30px;
-}
-
-.main_container .table {
-  padding: 10px 10px;
-  line-height: 1.8em;
 }
 
 .main_container .table a {
@@ -126,6 +141,14 @@ body {
   margin: auto;
   /* height: 60px; */
   border-radius: 5px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 30px;
+  background: rgba(45, 43, 43, 0.5);
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .main_container .contact button {
@@ -143,6 +166,14 @@ body {
   background-color: rgb(189, 82, 189);
   color: white;
   cursor: pointer;
+}
+
+/* Hover animation for divs */
+.main_container .intro:hover,
+.main_container .table:hover,
+.main_container .contact:hover {
+     transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 0 20px rgba(255, 193, 7, 0.4);
 }
 
 @media screen and (min-width: 1024px) {

@@ -5,75 +5,100 @@
 }
 
 body {
-  background-color: black;
+  background-color: #000;
   color: white;
-  /* font-family: Arial, sans-serif; */
+  font-family: "Poppins", sans-serif;
 }
 
+/* Headline Section */
 .headline {
-  margin-top: 30px;
+  margin-top: 40px;
   text-align: center;
 }
 
 .headline h3 {
-  color: orange;
+  color: #f1c40f;
+  font-size: 1.8rem;
+  position: relative;
+  padding-bottom: 8px;
 }
 
+/* Decorative underline */
+.headline h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 3px;
+  width: 50%;
+  background: linear-gradient(90deg, orange, yellow);
+  border-radius: 5px;
+}
+
+/* Main container layout */
 .main_container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2em;
-  padding: 20px;
+  padding: 30px;
 }
 
+/* Card styling */
 .box1 {
   background-color: rgba(45, 43, 43, 0.6);
-  box-shadow: 0px 0px 5px gray;
-  border-radius: 5px;
-  padding: 20px;
+  box-shadow: 0px 0px 5px rgba(255, 193, 7, 0.2);
+  border-radius: 12px;
+  padding: 25px;
   flex: 1 1 calc(50% - 2em);
   min-width: 280px;
   max-width: 500px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+/* Hover effect */
+.box1:hover {
+  box-shadow: 0px 0px 20px rgba(255, 193, 7, 0.4);
+  transform: translateY(-6px) scale(1.02);
+}
+
+/* Card title */
 .box1 h2 {
   color: #f1c40f;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  font-size: 1.5rem;
 }
 
-.box1 p, .box1 ul {
+/* Card content */
+.box1 p,
+.box1 ul {
   line-height: 1.6em;
+  color: #ddd;
+  font-size: 0.95rem;
 }
 
+/* Links */
 .box1 a {
   color: rgb(76, 188, 225);
   text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-<<<<<<< HEAD
 .box1 a:hover {
+  color: #00e5ff;
   text-decoration: underline;
-=======
-.main_container .box1 {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  /* border: solid white; */
-  background-color: rgba(45, 43, 43, 0.404);
-  box-shadow: 0px 0px 5px 0px gray;
-  /* height: 150px; */
-  padding: 10px 30px;
-  justify-content: center;
-  /* grid-column: 1/2; */
-  border-radius: 5px;
->>>>>>> 1d5f9c2 (modify)
 }
 
+/* Lists */
 ul {
   margin-left: 20px;
 }
 
+/* Responsive design */
 @media (max-width: 768px) {
   .box1 {
     flex: 1 1 100%;

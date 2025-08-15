@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-/*Fixed Navbar */
+/* Navbar */
 .navbar {
   position: fixed;
   top: 0;
@@ -13,29 +13,36 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #333;
-  padding: 10px 20px;
+  background: linear-gradient(90deg, #1f1f1f, #2c2c2c);
+  padding: 12px 25px;
   color: white;
-  z-index: 1000; /* Navbar hamesha top pe rahe */
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-.navbar .logo label a{
+/* Logo */
+.navbar .logo label a {
   font-family: "Montserrat", sans-serif;
   font-size: 1.8rem;
   font-weight: bold;
   color: #f1c40f;
   letter-spacing: 2px;
-}
-
-.navbar .logo label a {
   text-decoration: none;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
+.navbar .logo label a:hover {
+  transform: scale(1.05);
+  color: #ffdd33;
+}
+
+/* Space below navbar */
 body {
-  padding-top: 60px; /* Navbar ki height jitna space */
+  padding-top: 65px;
+  background-color: #111;
 }
 
-/* Default: Desktop View*/
+/* Desktop Menu */
 .menulinks {
   display: block;
 }
@@ -51,58 +58,71 @@ body {
   color: white;
   font-size: 1rem;
   position: relative;
-  transition: color 0.3s ease;
   font-family: Arial, sans-serif;
+  padding: 5px 0;
+  transition: color 0.3s ease;
 }
 
-.menulinks ul li a:hover {
-  color: yellow;
-}
-
-/* Current Page Highlight */
-.menulinks ul li a.active {
-  color: yellow; 
-  font-weight: bold; 
-  position: relative;
-}
-
-/* Active link ke niche underline effect */
-.menulinks ul li a.active::after {
+/* Hover underline animation */
+.menulinks ul li a::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -5px;
-  width: 100%;
+  bottom: -3px;
+  width: 0;
   height: 2px;
-  background-color: yellow;
+  background: #f1c40f;
+  transition: width 0.3s ease;
 }
 
-/* Mobile View: Hide Menu & Show Toggle Button */
+.menulinks ul li a:hover {
+  color: #f1c40f;
+}
+
+.menulinks ul li a:hover::after {
+  width: 100%;
+}
+
+/* Active link */
+.menulinks ul li a.active {
+  color: #f1c40f;
+  font-weight: bold;
+}
+
+.menulinks ul li a.active::after {
+  width: 100%;
+}
+
+/* Mobile View */
 @media screen and (max-width: 768px) {
   .toggle-btn {
     display: block;
     background: none;
     border: none;
     color: white;
-    font-size: 24px;
+    font-size: 26px;
     cursor: pointer;
+    transition: transform 0.3s ease;
   }
 
-  /*Fix: Menu ko full width + fixed position do */
+  .toggle-btn:hover {
+    transform: rotate(90deg);
+  }
+
   .menulinks {
     display: none;
     flex-direction: column;
-    background: #444;
+    background: #222;
     width: 100%;
     position: fixed;
-    top: 50px;
+    top: 60px;
     left: 0;
-    padding: 10px;
-    height: auto; 
-    z-index: 999; 
+    padding: 15px;
+    z-index: 999;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    animation: slideDown 0.3s ease forwards;
   }
 
-  /*Menu jab open ho to dikhna chahiye */
   .menulinks.show {
     display: flex;
   }
@@ -113,9 +133,21 @@ body {
   }
 }
 
-/*Desktop View: Hide Toggle Button */
+/* Hide toggle button in desktop */
 @media screen and (min-width: 769px) {
   .toggle-btn {
     display: none;
+  }
+}
+
+/* Slide down animation for mobile menu */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
